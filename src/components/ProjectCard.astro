@@ -26,20 +26,22 @@ const { title, description, technologies, href } = Astro.props;
     </p>
   </div>
   <div class="mt-4 p-6">
-    <Button href={href} target="_blank">
-      Ver Proyecto
-      <svg
-        class="w-5 h-5 ml-2"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        ><path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
-      >
+    <Button asChild>
+      <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/80 transition duration-300 text-base font-semibold shadow-md">
+        Ver Proyecto
+        <svg
+          class="w-5 h-5 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+        >
+      </a>
     </Button>
   </div>
 </div>

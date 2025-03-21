@@ -1,4 +1,6 @@
 ---
+import { Badge } from "./ui/badge";
+
 interface Props {
   name: string;
 }
@@ -6,8 +8,6 @@ interface Props {
 const { name } = Astro.props;
 ---
 
-<div
-  class="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground shadow-sm"
->
+<Badge>
   {name}
-</div>
+</Badge>
