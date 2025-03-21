@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Skill from "../components/Skill.astro";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../components/ui/card"
+import { Button } from "../components/ui/button"
+
+interface SkillData {
+  name: string;
+}
+
+const skills: SkillData[] = [
+  { name: "Next.js" },
+  { name: "Nuxt.js" },
+  { name: "Node.js" },
+  { name: "React" },
+  { name: "PostgreSQL" },
+  { name: "AWS" },
+  { name: "Docker" },
+  { name: "Blockchain" },
+  { name: "n8n" },
+];
+
+---
+
+<Layout>
+
+  <body>
+	
+    <header class="bg-background text-foreground py-4 rounded-b-md shadow border">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">
+          Desarrollador Web Full Stack & Blockchain
+        </h1>
+        <Button href="mailto:brayanespitia10@gmail.com">
+          Contactar
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 0l-5.734 3.82a2 2 0 01-2.22 0L3 8z"
+            ></path><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 17v-8m0 0l9 5m-9-5l9-5m-3 0v-9"></path></svg
+          >
+        </Button>
+      </div>
+    </header>
+
+    <section class="container mx-auto py-12 px-4">
+      <Card>
+        <CardHeader>
+          <CardTitle>Sobre Mí</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/4">
+              <img
+                src="/profile.jpeg"
+                alt="Foto de Brayan Espitia"
+                class="rounded-full shadow-md w-40 h-40"
+                loading="lazy"
+              />
+            </div>
+            <div class="md:w-2/3">
+              <CardDescription>
+                Soy un desarrollador full stack con experiencia en la construcción
+                de aplicaciones web altamente escalables y el desarrollo de
+                soluciones descentralizadas. Mi enfoque principal es encontrar
+                soluciones innovadoras que simplifiquen los procesos y ayudan a
+                las empresas a integrar la tecnología Blockchain para mejorar la
+                transparencia, la seguridad y la eficiencia operativa.
+              </CardDescription>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Mis Habilidades</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map((skill) => (
+              <Skill name={skill.name} />
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </section>
+
+    <section class="bg-card py-12 rounded-t-md shadow border">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-indigo-600 text-center mb-8">
+          Proyectos Destacados
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProjectCard
+            title="Airballoons"
+            description="Aplicación interactiva donde globos aerostáticos vuelan alrededor del mundo, simulando un juego."
+            technologies="Web3, Blockchain, Juegos"
+            href="https://app.airballoons.io/"
+          />
+          <ProjectCard
+            title="Revolutionize the Future: Real Use Cases of Web3"
+            description="Descubre cómo la tecnología blockchain está transformando industrias con soluciones innovadoras."
+            technologies="Web3, Blockchain, Soluciones Innovadoras"
+            href="https://rwa.nuxt.dev/"
+          />
+          <ProjectCard
+            title="Sionland"
+            description="Ecosistema de datos geográficos multicapa descentralizado a escala global, construido para impulsar un nuevo concepto de la economía Multiverse Cross Chain."
+            technologies="Web3, Multiverse, Blockchain"
+            href="https://app.sionland.io/"
+          />
+          <ProjectCard
+            title="Crypto Pagos App"
+            description="Aplicación para realizar pagos con criptomonedas."
+            technologies="Web3, Criptomonedas, Pagos"
+            href="https://my-app-web3.vercel.app/"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-background text-foreground py-4 rounded-t-md shadow border text-center">
+      <div class="container mx-auto px-4">
+        <p class="text-sm">
+          © 2025 Brayan Espitia. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</Layout>
