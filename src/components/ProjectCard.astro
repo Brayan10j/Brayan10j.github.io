@@ -1,5 +1,6 @@
 ---
-import { Button } from "./ui/button"
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge"; // Import Badge component
 
 interface Props {
   title: string;
@@ -12,7 +13,7 @@ const { title, description, technologies, href } = Astro.props;
 ---
 
 <div
-  class="bg-card text-card-foreground rounded-lg shadow border flex flex-col justify-between"
+  class="bg-card text-card-foreground rounded-lg shadow border flex flex-col justify-between transition-transform duration-300 hover:scale-105 hover:shadow-lg"
 >
   <div class="p-6">
     <h3 class="text-xl font-semibold text-indigo-400 mb-3">
@@ -21,11 +22,11 @@ const { title, description, technologies, href } = Astro.props;
     <p class="text-muted-foreground mb-2">
       {description}
     </p>
-    <p class="text-muted-foreground mb-4">
-      <span class="font-semibold">Tecnologías:</span> {technologies}
-    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      {technologies.split(',').map(tech => tech.trim() && <Badge variant="secondary">{tech.trim()}</Badge>)}
+    </div>
   </div>
-  <div class="mt-4 p-6">
+  <div class="p-6 pt-0"> {/* Adjusted padding */}
     <Button asChild>
       <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/80 transition duration-300 text-base font-semibold shadow-md">
         Ver Proyecto

@@ -12,23 +12,8 @@ import {
 } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Mail } from "lucide-react";
+import { skills } from "../data/skills"; // Import skills data
 import "../styles/global.css";
-
-interface SkillData {
-  name: string;
-}
-
-const skills: SkillData[] = [
-  { name: "Next.js" },
-  { name: "Nuxt.js" },
-  { name: "Node.js" },
-  { name: "Docker" },
-  { name: "SQL/noSQL" },
-  { name: "CI/CD" },
-  { name: "Cloud" },
-  { name: "Blockchain" },
-  { name: "n8n" },
-];
 ---
 
 <script is:inline>
@@ -56,28 +41,25 @@ const skills: SkillData[] = [
 </script>
 
 <Layout>
-  <body>
-    <header
-      class="bg-background text-foreground py-4 rounded-b-md shadow border"
-    >
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <h1 class="text-2xl font-semibold">
-          Desarrollador Web Full Stack & Blockchain
-        </h1>
-        <div class="flex items-center gap-4">
-          <Button>
-            <a href="mailto:brayanespitia10@gmail.com" target="_blank"
-              >Contactar</a
-            >
-            <Mail className="w-5 h-5 ml-2" />
-          </Button>
-          <ModeToggle client:load />
-        </div>
+  <header class="bg-background text-foreground py-6 rounded-b-md shadow border">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-semibold">
+        Desarrollador Web Full Stack & Blockchain
+      </h1>
+      <div class="flex items-center gap-4">
+        <Button  variant="outline" >
+          <a href="mailto:brayanespitia10@gmail.com" target="_blank">
+            Contactar
+          </a><Mail className="w-5 h-5" />
+        </Button>
+        <ModeToggle client:load />
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section class="container mx-auto py-12 px-4">
-      <Card className="mt-8">
+  <main class="container mx-auto py-12 px-4">
+    <section id="about" class="mb-16 scroll-mt-24 animate-fade-in">
+      <Card>
         <CardHeader>
           <CardTitle>Sobre Mí</CardTitle>
         </CardHeader>
@@ -105,8 +87,13 @@ const skills: SkillData[] = [
           </div>
         </CardContent>
       </Card>
+    </section>
 
-      <Card className="mt-8">
+    <section
+      id="projects"
+      class="mb-16 scroll-mt-24 animate-fade-in animation-delay-200"
+    >
+      <Card>
         <CardHeader>
           <CardTitle>Proyectos Destacados</CardTitle>
         </CardHeader>
@@ -137,16 +124,21 @@ const skills: SkillData[] = [
               href="https://my-app-web3.vercel.app/"
             />
             <ProjectCard
-            title="EncuentraTodo"
-            description="Tu plataforma integral para buscar productos y servicios, conectando usuarios con negocios y profesionales independientes en Colombia."
-            technologies="Supabase ,nuxt"
-            href="https://encuentra-todo.vercel.app/"
-          />
+              title="EncuentraTodo"
+              description="Tu plataforma integral para buscar productos y servicios, conectando usuarios con negocios y profesionales independientes en Colombia."
+              technologies="Supabase ,nuxt"
+              href="https://encuentra-todo.vercel.app/"
+            />
           </div>
         </CardContent>
       </Card>
+    </section>
 
-      <Card className="mt-8">
+    <section
+      id="skills"
+      class="mb-16 scroll-mt-24 animate-fade-in animation-delay-400"
+    >
+      <Card>
         <CardHeader>
           <CardTitle>Mis Habilidades</CardTitle>
         </CardHeader>
@@ -157,15 +149,15 @@ const skills: SkillData[] = [
         </CardContent>
       </Card>
     </section>
+  </main>
 
-    <footer
-      class="bg-background text-foreground py-4 rounded-t-md shadow border text-center"
-    >
-      <div class="container mx-auto px-4">
-        <p class="text-sm">
-          © 2025 Brayan Espitia. Todos los derechos reservados.
-        </p>
-      </div>
-    </footer>
-  </body>
+  <footer
+    class="bg-background text-foreground py-4 rounded-t-md shadow border text-center"
+  >
+    <div class="container mx-auto px-4">
+      <p class="text-sm">
+        © 2025 Brayan Espitia. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
 </Layout>
