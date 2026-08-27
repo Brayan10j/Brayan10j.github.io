@@ -1,0 +1,75 @@
+---
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  emoji: string;
+  description: string;
+  tags: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    period: "2023 - Presente",
+    role: "AI Systems Architect & Web3 Lead",
+    company: "Sistemas Autónomos & Soluciones Descentralizadas",
+    emoji: "🧠",
+    description: "Diseño de arquitecturas inteligentes basadas en LLMs y agentes autónomos con flujos RAG. Dirección técnica en el despliegue de DApps de alta concurrencia, integración de smart contracts multicadena (Sionland, Airballoons) y automatización con n8n.",
+    tags: ["AI Systems", "LangChain", "Solidity", "Next.js", "Ethers.js", "Docker", "GCP"],
+  },
+  {
+    period: "2022 - 2023",
+    role: "Full Stack Engineer & Cloud Integrator",
+    company: "Soluciones Digitales & E-Commerce",
+    emoji: "⚡",
+    description: "Construcción de marketplaces y plataformas web con Nuxt.js y Supabase (EncuentraTodo), flujos automatizados con n8n y despliegues serverless.",
+    tags: ["Nuxt.js", "Supabase", "PostgreSQL", "n8n", "Tailwind CSS"],
+  },
+  {
+    period: "2021 - 2022",
+    role: "Frontend & Blockchain Specialist",
+    company: "Startups & FinTech",
+    emoji: "💳",
+    description: "Diseño e implementación de pasarelas de pago cripto (Crypto Pagos App), interfaces reactivas con React/TypeScript y conexión de billeteras Web3.",
+    tags: ["React", "TypeScript", "Web3.js", "Smart Contracts", "REST APIs"],
+  },
+];
+---
+
+<div class="relative border-l-2 border-border/80 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10">
+  {experiences.map((exp) => (
+    <div class="relative group">
+      <!-- Dot with Emoji -->
+      <div class="absolute -left-[35px] md:-left-[43px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-card border-2 border-primary text-sm shadow-md group-hover:scale-110 transition-transform">
+        <span>{exp.emoji}</span>
+      </div>
+
+      <div class="bg-card p-6 rounded-xl border border-border/70 shadow-sm hover:border-primary/40 hover:shadow-md transition-all">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-mono">
+            {exp.period}
+          </span>
+          <span class="text-xs text-muted-foreground font-medium">
+            {exp.company}
+          </span>
+        </div>
+
+        <h4 class="text-lg font-bold text-foreground mb-2">
+          {exp.role}
+        </h4>
+
+        <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+          {exp.description}
+        </p>
+
+        <div class="flex flex-wrap gap-1.5">
+          {exp.tags.map((tag) => (
+            <span class="text-xs px-2.5 py-0.5 rounded bg-secondary text-secondary-foreground border border-border/50 font-mono">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

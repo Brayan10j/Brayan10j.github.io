@@ -1,0 +1,53 @@
+---
+import { ModeToggle } from "./ModeToggle";
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/85 backdrop-blur-md transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    {/* Brand / Logo */}
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-base shadow-sm group-hover:scale-105 transition-transform">
+        <span>⚡</span>
+      </div>
+      <div>
+        <span class="font-heading font-extrabold text-base sm:text-lg tracking-tight text-foreground group-hover:text-primary transition-colors">
+          Brayan Espitia
+        </span>
+        <span class="hidden md:inline-block text-xs text-muted-foreground ml-2 font-mono">
+          AI Systems • FullStack • Blockchain
+        </span>
+      </div>
+    </a>
+
+    {/* Navigation Links */}
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground">
+      <a href="#about" class="px-3 py-1.5 rounded-lg hover:text-foreground hover:bg-secondary/60 transition">
+        Sobre Mí
+      </a>
+      <a href="#skills" class="px-3 py-1.5 rounded-lg hover:text-foreground hover:bg-secondary/60 transition">
+        Habilidades
+      </a>
+      <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-foreground hover:bg-secondary/60 transition">
+        Proyectos
+      </a>
+      <a href="#experience" class="px-3 py-1.5 rounded-lg hover:text-foreground hover:bg-secondary/60 transition">
+        Experiencia
+      </a>
+      <a href="#contact" class="px-3 py-1.5 rounded-lg hover:text-foreground hover:bg-secondary/60 transition">
+        Contacto
+      </a>
+    </nav>
+
+    {/* Actions */}
+    <div class="flex items-center gap-3">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs sm:text-sm font-semibold shadow-sm hover:opacity-90 active:scale-95 transition"
+      >
+        <span>Contratar</span>
+        <span>✉️</span>
+      </a>
+      <ModeToggle client:load />
+    </div>
+  </div>
+</header>
