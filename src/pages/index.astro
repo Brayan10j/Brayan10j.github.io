@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import ServicesSection from "../components/ServicesSection.astro";
 import { ProjectFilter } from "../components/ProjectFilter";
 import SkillsSection from "../components/SkillsSection.astro";
 import ExperienceTimeline from "../components/ExperienceTimeline.astro";
@@ -165,12 +166,26 @@ import "../styles/global.css";
       </div>
     </section>
 
+    {/* SERVICES SECTION */}
+    <section id="services" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-150">
+      <div class="border-t border-border/50 pt-10">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
+            02 / Servicios & Soluciones B2B
+          </h2>
+          <span class="text-xs text-muted-foreground font-mono">IA, Infraestructura & Web3</span>
+        </div>
+
+        <ServicesSection />
+      </div>
+    </section>
+
     {/* SKILLS SECTION */}
     <section id="skills" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-200">
       <div class="border-t border-border/50 pt-10">
         <div class="flex items-baseline justify-between mb-6">
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
-            02 / Stack Tecnológico
+            03 / Stack Tecnológico
           </h2>
           <span class="text-xs text-muted-foreground font-mono">Herramientas & Frameworks</span>
         </div>
@@ -184,7 +199,7 @@ import "../styles/global.css";
       <div class="border-t border-border/50 pt-10">
         <div class="flex items-baseline justify-between mb-6">
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
-            03 / Proyectos Destacados
+            04 / Proyectos Destacados
           </h2>
           <span class="text-xs text-muted-foreground font-mono">Producción & Web3</span>
         </div>
@@ -198,7 +213,7 @@ import "../styles/global.css";
       <div class="border-t border-border/50 pt-10">
         <div class="flex items-baseline justify-between mb-6">
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
-            04 / Trayectoria
+            05 / Trayectoria
           </h2>
           <span class="text-xs text-muted-foreground font-mono">Experiencia Relevante</span>
         </div>
@@ -212,7 +227,7 @@ import "../styles/global.css";
       <div class="border-t border-border/50 pt-10">
         <div class="flex items-baseline justify-between mb-6">
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
-            05 / Contacto Directo
+            06 / Contacto Directo
           </h2>
           <span class="text-xs text-muted-foreground font-mono">Hablemos</span>
         </div>
