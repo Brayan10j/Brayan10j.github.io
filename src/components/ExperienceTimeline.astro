@@ -14,7 +14,7 @@ const experiences: ExperienceItem[] = [
     role: "AI Systems Architect & Web3 Lead",
     company: "Sistemas Autónomos & Soluciones Descentralizadas",
     emoji: "🧠",
-    description: "Diseño de arquitecturas inteligentes basadas en LLMs y agentes autónomos con flujos RAG. Dirección técnica en el despliegue de DApps de alta concurrencia, integración de smart contracts multicadena (Sionland, Airballoons) y automatización con n8n.",
+    description: "Diseño de arquitecturas inteligentes basadas en LLMs y agentes autónomos con flujos RAG. Dirección técnica en despliegues Web3, smart contracts multicadena (Sionland, Airballoons) y automatización con n8n.",
     tags: ["AI Systems", "LangChain", "Solidity", "Next.js", "Ethers.js", "Docker", "GCP"],
   },
   {
@@ -36,40 +36,38 @@ const experiences: ExperienceItem[] = [
 ];
 ---
 
-<div class="relative border-l-2 border-border/80 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10">
+<div class="space-y-8 border-l border-border/50 pl-6 ml-2">
   {experiences.map((exp) => (
-    <div class="relative group">
-      <!-- Dot with Emoji -->
-      <div class="absolute -left-[35px] md:-left-[43px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-card border-2 border-primary text-sm shadow-md group-hover:scale-110 transition-transform">
-        <span>{exp.emoji}</span>
+    <div class="relative group space-y-2">
+      {/* Subtle indicator dot */}
+      <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-border group-hover:bg-primary transition-colors"></div>
+
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h3 class="text-sm font-bold text-foreground">
+          {exp.role}
+        </h3>
+        <span class="text-xs font-mono text-muted-foreground">
+          {exp.period}
+        </span>
       </div>
 
-      <div class="bg-card p-6 rounded-xl border border-border/70 shadow-sm hover:border-primary/40 hover:shadow-md transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-          <span class="inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-mono">
-            {exp.period}
+      <p class="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
+        <span>{exp.emoji}</span>
+        <span>{exp.company}</span>
+      </p>
+
+      <p class="text-xs text-muted-foreground/90 leading-relaxed max-w-2xl pt-1">
+        {exp.description}
+      </p>
+
+      <div class="flex flex-wrap gap-1 pt-1">
+        {exp.tags.map((tag) => (
+          <span class="text-[11px] px-2 py-0.5 rounded bg-secondary/30 text-muted-foreground border border-border/30 font-mono">
+            {tag}
           </span>
-          <span class="text-xs text-muted-foreground font-medium">
-            {exp.company}
-          </span>
-        </div>
-
-        <h4 class="text-lg font-bold text-foreground mb-2">
-          {exp.role}
-        </h4>
-
-        <p class="text-sm text-muted-foreground leading-relaxed mb-4">
-          {exp.description}
-        </p>
-
-        <div class="flex flex-wrap gap-1.5">
-          {exp.tags.map((tag) => (
-            <span class="text-xs px-2.5 py-0.5 rounded bg-secondary text-secondary-foreground border border-border/50 font-mono">
-              {tag}
-            </span>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   ))}
 </div>
+

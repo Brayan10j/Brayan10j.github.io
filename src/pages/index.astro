@@ -35,41 +35,39 @@ import "../styles/global.css";
 <Layout>
   <Navbar />
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-24">
-    {/* HERO SECTION */}
-    <section id="hero" class="pt-6 sm:pt-12 animate-fade-in">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Hero Left / Info */}
-        <div class="lg:col-span-7 space-y-6 text-left">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-20">
+    {/* HERO SECTION - MINIMALIST */}
+    <section id="hero" class="pt-6 sm:pt-10 animate-fade-in">
+      <div class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+        {/* Info */}
+        <div class="space-y-5 flex-1 text-left">
           {/* Status Badge */}
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold border border-border shadow-xs">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Disponible para roles en AI Systems, Full Stack & Blockchain</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 text-foreground text-xs font-medium border border-border/60">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Disponible para nuevos proyectos & roles</span>
           </div>
 
-          {/* Main Title */}
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-            Hola, soy <span class="text-primary underline decoration-primary/40 underline-offset-4">Brayan Espitia</span> 🚀
-          </h1>
-
-          {/* Subtitle / Role */}
-          <div class="space-y-1">
-            <p class="text-xl sm:text-2xl font-extrabold text-foreground font-heading">
-              AI Systems Architect <span class="text-primary">|</span> FullStack Web Developer <span class="text-primary">|</span> Blockchain Developer
+          {/* Main Title & Role */}
+          <div class="space-y-2">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
+              Brayan Espitia
+            </h1>
+            <p class="text-lg sm:text-xl font-semibold text-muted-foreground">
+              AI Systems Architect <span class="text-border">/</span> FullStack Developer <span class="text-border">/</span> Blockchain
             </p>
           </div>
 
           {/* Bio text */}
-          <p class="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Diseño arquitecturas de software avanzadas integrando <strong class="text-foreground">Sistemas de IA</strong>, aplicaciones <strong class="text-foreground">Full Stack</strong> de alto rendimiento y ecosistemas descentralizados en <strong class="text-foreground">Blockchain & Web3</strong>.
+          <p class="text-base text-muted-foreground leading-relaxed max-w-xl">
+            Especializado en diseñar arquitecturas escalables que combinan <strong class="text-foreground font-medium">Sistemas de IA</strong>, aplicaciones web modernas de alto rendimiento y ecosistemas descentralizados en <strong class="text-foreground font-medium">Web3 & Blockchain</strong>.
           </p>
 
           {/* Action CTAs */}
-          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+          <div class="flex flex-wrap items-center gap-3 pt-2">
             <a
               href="#projects"
               id="hero-btn-projects"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-bold shadow-md hover:opacity-90 active:scale-95 transition"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-foreground text-background text-sm font-semibold hover:opacity-90 active:scale-95 transition"
             >
               <span>Ver Proyectos</span>
               <span>📂</span>
@@ -77,262 +75,166 @@ import "../styles/global.css";
             <a
               href="#contact"
               id="hero-btn-contact"
-              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-secondary text-secondary-foreground text-sm font-semibold border border-border hover:bg-secondary/80 active:scale-95 transition"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-secondary-foreground text-sm font-medium border border-border/70 hover:bg-secondary/80 active:scale-95 transition"
             >
               <span>Contactar</span>
               <span>✉️</span>
             </a>
-            <a
-              href="https://www.linkedin.com/in/brayan-espitia-615ab3127/"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="hero-btn-linkedin"
-              class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-secondary/50 hover:bg-secondary text-secondary-foreground text-sm font-medium border border-border transition"
-              title="Perfil de LinkedIn"
-            >
-              <span>💼</span>
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://github.com/Brayan10j"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="hero-btn-github"
-              class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-secondary/50 hover:bg-secondary text-secondary-foreground text-sm font-medium border border-border transition"
-              title="Perfil de GitHub"
-            >
-              <span>🐙</span>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Hero Right / Avatar & Highlights */}
-        <div class="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
-          <div class="relative group">
-            {/* Background Decorative Rings */}
-            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-primary/30 to-indigo-500/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
-
-            {/* Profile Card */}
-            <div class="relative rounded-3xl border border-border bg-card p-6 shadow-xl flex flex-col items-center text-center max-w-sm">
-              <div class="relative mb-5">
-                <img
-                  src="/profile.jpeg"
-                  alt="Brayan Espitia"
-                  class="rounded-2xl w-44 h-44 object-cover border-2 border-border shadow-md"
-                  loading="eager"
-                />
-                <div class="absolute -bottom-2 -right-2 bg-card border border-border p-2 rounded-xl text-xl shadow-md">
-                  <span>🧠</span>
-                </div>
-              </div>
-
-              <h3 class="text-xl font-bold text-foreground">
-                Brayan Espitia
-              </h3>
-              <p class="text-xs text-primary font-mono font-medium mb-3">
-                AI Systems • FullStack • Blockchain
-              </p>
-
-              <div class="w-full grid grid-cols-2 gap-2 pt-3 border-t border-border/60 text-xs">
-                <div class="bg-secondary/60 p-2 rounded-lg text-center">
-                  <span class="block font-bold text-foreground">Colombia 🇨🇴</span>
-                  <span class="text-muted-foreground text-[11px]">Ubicación</span>
-                </div>
-                <div class="bg-secondary/60 p-2 rounded-lg text-center">
-                  <span class="block font-bold text-foreground">Remoto / Global 🌍</span>
-                  <span class="text-muted-foreground text-[11px]">Modalidad</span>
-                </div>
-              </div>
+            <div class="flex items-center gap-2">
+              <a
+                href="https://github.com/Brayan10j"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="hero-btn-github"
+                class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 text-sm font-medium transition"
+                title="GitHub"
+              >
+                <span>🐙</span>
+                <span class="text-xs">GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/brayan-espitia-615ab3127/"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="hero-btn-linkedin"
+                class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 text-sm font-medium transition"
+                title="LinkedIn"
+              >
+                <span>💼</span>
+                <span class="text-xs">LinkedIn</span>
+              </a>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Metrics Ribbon */}
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="p-5 rounded-2xl bg-card border border-border/80 shadow-xs text-center">
-          <div class="text-2xl font-extrabold text-primary mb-1">🧠 AI Systems</div>
-          <p class="text-xs text-muted-foreground font-medium">LLMs, RAG & Agentes Autónomos</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-card border border-border/80 shadow-xs text-center">
-          <div class="text-2xl font-extrabold text-primary mb-1">💻 Full Stack</div>
-          <p class="text-xs text-muted-foreground font-medium">Next.js, Node.js & Cloud</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-card border border-border/80 shadow-xs text-center">
-          <div class="text-2xl font-extrabold text-primary mb-1">⛓️ Blockchain</div>
-          <p class="text-xs text-muted-foreground font-medium">Smart Contracts & Web3</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-card border border-border/80 shadow-xs text-center">
-          <div class="text-2xl font-extrabold text-primary mb-1">⚡ +4 Años</div>
-          <p class="text-xs text-muted-foreground font-medium">Trayectoria Técnica</p>
+        {/* Profile Avatar Minimal */}
+        <div class="shrink-0">
+          <div class="relative group">
+            <img
+              src="/profile.jpeg"
+              alt="Brayan Espitia"
+              class="rounded-2xl w-32 h-32 sm:w-40 sm:h-40 object-cover border border-border/80 shadow-sm"
+              loading="eager"
+            />
+            <div class="absolute -bottom-2 -right-2 bg-background border border-border/80 px-2 py-0.5 rounded-md text-xs font-mono text-muted-foreground shadow-xs">
+              🇨🇴 Colombia
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* ABOUT / SOBRE MÍ SECTION */}
-    <section id="about" class="scroll-mt-24 space-y-8 animate-fade-in animation-delay-100">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-          <span>👨‍💻</span>
-          <span>Perfil Profesional</span>
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-foreground">
-          Sobre Mí & Enfoque
+    {/* SOBRE MÍ / FOCUS MINIMAL */}
+    <section id="about" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-100">
+      <div class="border-t border-border/50 pt-10">
+        <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground mb-4">
+          01 / Enfoque Profesional
         </h2>
-        <p class="text-sm text-muted-foreground">
-          Diseñando la intersección entre sistemas inteligentes, desarrollo web escalable y descentralización.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-border/80 bg-card p-6 shadow-sm hover:border-primary/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-foreground font-semibold">
               <span>🧠</span>
+              <h3>AI Systems & Agentes</h3>
             </div>
-            <h3 class="text-lg font-bold text-foreground mb-2">
-              AI Systems Architect
-            </h3>
             <p class="text-sm text-muted-foreground leading-relaxed">
-              Diseño de sistemas de IA generativa, orquestación de agentes autónomos, pipelines RAG con bases de datos vectoriales y automatización de flujos complejos con n8n y LangChain.
+              Diseño de sistemas LLM, orquestación de agentes autónomos, pipelines RAG con bases de datos vectoriales y automatizaciones con n8n y LangChain.
             </p>
           </div>
-          <div class="mt-4 pt-4 border-t border-border/50 text-xs font-semibold text-primary">
-            ✦ LLMs • RAG • Agentes Autónomos • n8n
-          </div>
-        </div>
 
-        <div class="rounded-2xl border border-border/80 bg-card p-6 shadow-sm hover:border-primary/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-foreground font-semibold">
               <span>💻</span>
+              <h3>FullStack Moderno</h3>
             </div>
-            <h3 class="text-lg font-bold text-foreground mb-2">
-              FullStack Web Developer
-            </h3>
             <p class="text-sm text-muted-foreground leading-relaxed">
-              Desarrollo de aplicaciones de alta velocidad y resiliencia con Next.js (App Router), React, TypeScript, Node.js y bases de datos relacionales y no relacionales (PostgreSQL, Supabase).
+              Desarrollo con Next.js (App Router), TypeScript, React, Node.js y bases de datos relacionales como PostgreSQL y Supabase.
             </p>
           </div>
-          <div class="mt-4 pt-4 border-t border-border/50 text-xs font-semibold text-primary">
-            ✦ Next.js • React • TypeScript • PostgreSQL
-          </div>
-        </div>
 
-        <div class="rounded-2xl border border-border/80 bg-card p-6 shadow-sm hover:border-primary/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-foreground font-semibold">
               <span>⛓️</span>
+              <h3>Blockchain & Web3</h3>
             </div>
-            <h3 class="text-lg font-bold text-foreground mb-2">
-              Blockchain Developer
-            </h3>
             <p class="text-sm text-muted-foreground leading-relaxed">
-              Creación de smart contracts seguros en Solidity, integración de pasarelas de pago cripto, tokenización de Real World Assets (RWA) y aplicaciones descentralizadas multicadena.
+              Smart contracts seguros en Solidity, tokenización de Real World Assets (RWA), pasarelas de pago cripto y arquitecturas multicadena.
             </p>
-          </div>
-          <div class="mt-4 pt-4 border-t border-border/50 text-xs font-semibold text-primary">
-            ✦ Solidity • Web3 • Smart Contracts • Cross-chain
           </div>
         </div>
       </div>
     </section>
 
     {/* SKILLS SECTION */}
-    <section id="skills" class="scroll-mt-24 space-y-8 animate-fade-in animation-delay-200">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-          <span>🛠️</span>
-          <span>Stack Tecnológico</span>
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-foreground">
-          Habilidades & Herramientas
-        </h2>
-        <p class="text-sm text-muted-foreground">
-          Tecnologías y librerías que utilizo para crear soluciones escalables y seguras.
-        </p>
-      </div>
+    <section id="skills" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-200">
+      <div class="border-t border-border/50 pt-10">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
+            02 / Stack Tecnológico
+          </h2>
+          <span class="text-xs text-muted-foreground font-mono">Herramientas & Frameworks</span>
+        </div>
 
-      <SkillsSection />
+        <SkillsSection />
+      </div>
     </section>
 
     {/* PROJECTS SECTION */}
-    <section id="projects" class="scroll-mt-24 space-y-8 animate-fade-in animation-delay-300">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-          <span>💼</span>
-          <span>Portafolio</span>
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-foreground">
-          Proyectos Destacados
-        </h2>
-        <p class="text-sm text-muted-foreground">
-          Explora aplicaciones descentralizadas, plataformas de datos y soluciones web interactivas.
-        </p>
-      </div>
+    <section id="projects" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-300">
+      <div class="border-t border-border/50 pt-10">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
+            03 / Proyectos Destacados
+          </h2>
+          <span class="text-xs text-muted-foreground font-mono">Producción & Web3</span>
+        </div>
 
-      <ProjectFilter client:load />
+        <ProjectFilter client:load />
+      </div>
     </section>
 
     {/* EXPERIENCE SECTION */}
-    <section id="experience" class="scroll-mt-24 space-y-8 animate-fade-in animation-delay-400">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-          <span>📈</span>
-          <span>Trayectoria</span>
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-foreground">
-          Experiencia & Proyectos
-        </h2>
-        <p class="text-sm text-muted-foreground">
-          Hitos clave en mi trayectoria como desarrollador de software y especialista blockchain.
-        </p>
-      </div>
+    <section id="experience" class="scroll-mt-24 space-y-6 animate-fade-in animation-delay-400">
+      <div class="border-t border-border/50 pt-10">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
+            04 / Trayectoria
+          </h2>
+          <span class="text-xs text-muted-foreground font-mono">Experiencia Relevante</span>
+        </div>
 
-      <div class="max-w-3xl mx-auto">
         <ExperienceTimeline />
       </div>
     </section>
 
     {/* CONTACT SECTION */}
-    <section id="contact" class="scroll-mt-24 space-y-8">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
-          <span>📬</span>
-          <span>Contacto</span>
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-foreground">
-          Iniciemos una Conversación
-        </h2>
-        <p class="text-sm text-muted-foreground">
-          ¿Tienes una idea en mente, necesitas soporte en Web3 o buscas un desarrollador Full Stack?
-        </p>
-      </div>
+    <section id="contact" class="scroll-mt-24 space-y-6">
+      <div class="border-t border-border/50 pt-10">
+        <div class="flex items-baseline justify-between mb-6">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
+            05 / Contacto Directo
+          </h2>
+          <span class="text-xs text-muted-foreground font-mono">Hablemos</span>
+        </div>
 
-      <ContactCard client:load />
+        <ContactCard client:load />
+      </div>
     </section>
   </main>
 
   {/* FOOTER */}
-  <footer class="border-t border-border/80 bg-card py-10 mt-20 text-center">
-    <div class="max-w-6xl mx-auto px-4 space-y-4">
-      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground font-medium">
-        <a href="#about" class="hover:text-foreground transition">Sobre Mí</a>
-        <a href="#skills" class="hover:text-foreground transition">Habilidades</a>
-        <a href="#projects" class="hover:text-foreground transition">Proyectos</a>
-        <a href="#experience" class="hover:text-foreground transition">Experiencia</a>
-        <a href="#contact" class="hover:text-foreground transition">Contacto</a>
+  <footer class="border-t border-border/40 py-8 mt-16 text-center text-xs text-muted-foreground">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>
+        © 2025 <span class="text-foreground font-medium">Brayan Espitia</span>
+      </p>
+      <div class="flex items-center gap-4">
+        <a href="#hero" class="hover:text-foreground transition">Inicio ⚡</a>
+        <a href="https://github.com/Brayan10j" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition">GitHub 🐙</a>
+        <a href="https://www.linkedin.com/in/brayan-espitia-615ab3127/" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition">LinkedIn 💼</a>
       </div>
-
-      <p class="text-sm text-muted-foreground">
-        © 2025 <strong class="text-foreground">Brayan Espitia</strong> — AI Systems Architect | FullStack Web Developer | Blockchain Developer
-      </p>
-
-      <p class="text-xs text-muted-foreground/80">
-        Diseñado con enfoque en rendimiento, accesibilidad y estética moderna ⚡
-      </p>
     </div>
   </footer>
 </Layout>
+
 
