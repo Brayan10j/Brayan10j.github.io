@@ -1,3 +1,16 @@
+export interface SubProjectItem {
+  id: string;
+  title: string;
+  emoji: string;
+  tagline: string;
+  description: string;
+  technologies: string[];
+  href: string;
+  badgeText?: string;
+  status?: "live" | "production" | "demo" | "gemini";
+  features?: string[];
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -11,6 +24,8 @@ export interface ProjectItem {
   highlight?: boolean;
   status: "live" | "production" | "demo";
   badgeText: string;
+  hasModal?: boolean;
+  subProjects?: SubProjectItem[];
 }
 
 export const projects: ProjectItem[] = [
@@ -18,15 +33,50 @@ export const projects: ProjectItem[] = [
     id: "ai-agentic-systems",
     title: "AI Autonomous Systems & Agents",
     emoji: "🧠",
-    tagline: "Arquitectura de agentes autónomos y flujos RAG",
-    description: "Diseño e implementación de sistemas basados en LLMs, orquestación de agentes con memoria contextual, búsqueda semántica y automatización avanzada con n8n.",
+    tagline: "Arquitectura de agentes autónomos y extractores inteligentes",
+    description: "Diseño e implementación de agentes autónomos especializados, extractores de datos contables con LLMs, flujos RAG con memoria contextual y automatización avanzada con n8n.",
     category: "ai",
-    technologies: ["AI Systems", "LangChain", "LLMs", "n8n", "Vector DBs", "Python/Node"],
-    href: "https://github.com/Brayan10j",
+    technologies: ["Gemini AI", "LangChain", "LLMs", "Document AI", "n8n", "Python/Node"],
+    href: "https://gemini.google.com/gem/1Pw55vn4DrffrXUdIRNK6Td31v-fvR45Z?usp=sharing",
     github: "https://github.com/Brayan10j",
     highlight: true,
     status: "production",
     badgeText: "🧠 AI Systems & Agents",
+    hasModal: true,
+    subProjects: [
+      {
+        id: "extractor-contable-gemini",
+        title: "Extractor de Datos Contables & Facturas",
+        emoji: "📑",
+        tagline: "Agente inteligente especializado en documentos contables y financieros",
+        description: "Extractor de datos de alta precisión para documentos contables, facturas electrónicas, recibos de caja, cotizaciones y órdenes de compra. Procesa imágenes y PDFs convirtiendo información no estructurada en esquemas limpios para ERPs y sistemas contables.",
+        technologies: ["Gemini AI", "Vision OCR", "Data Extraction", "Facturas & Recibos", "JSON Structuring"],
+        href: "https://gemini.google.com/gem/1Pw55vn4DrffrXUdIRNK6Td31v-fvR45Z?usp=sharing",
+        badgeText: "⚡ Gemini Custom Agent",
+        status: "gemini",
+        features: [
+          "Extracción detallada de ítems, cantidades, precios unitarios e impuestos (IVA, retenciones)",
+          "Reconocimiento de NIT, RUT, emisor, receptor y fechas contables",
+          "Soporte para recibos de caja, facturas físicas/digitales y órdenes de compra",
+          "Salida estructurada lista para integración contable",
+        ],
+      },
+      {
+        id: "agentic-rag-orchestrator",
+        title: "Orquestador de Flujos y Automatización n8n",
+        emoji: "⚡",
+        tagline: "Agente para pipelines autónomos de soporte y sincronización",
+        description: "Arquitectura de agentes conectados mediante webhooks y n8n para procesar solicitudes, consultar bases vectoriales de conocimiento y automatizar respuestas en canales de mensajería empresarial.",
+        technologies: ["n8n", "LangChain", "Vector DBs", "Webhooks", "Node.js"],
+        href: "https://github.com/Brayan10j",
+        badgeText: "🤖 Workflow Agent",
+        status: "production",
+        features: [
+          "Enrutamiento inteligente de consultas con memoria de conversación",
+          "Integración con bases de datos y CRMs corporativos",
+        ],
+      },
+    ],
   },
   {
     id: "airballoons",
