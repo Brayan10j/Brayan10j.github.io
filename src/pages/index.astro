@@ -6,6 +6,10 @@ import { ProjectFilter } from "../components/ProjectFilter";
 import SkillsSection from "../components/SkillsSection.astro";
 import ExperienceTimeline from "../components/ExperienceTimeline.astro";
 import { ContactCard } from "../components/ContactCard";
+import {
+  LinkedInIcon,
+  GitHubIcon,
+} from "../components/icons/PlatformIcons";
 import "../styles/global.css";
 ---
 
@@ -43,9 +47,9 @@ import "../styles/global.css";
         {/* Info */}
         <div class="space-y-5 flex-1 text-left">
           {/* Status Badge */}
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 text-foreground text-xs font-medium border border-border/60">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Disponible para nuevos proyectos & roles</span>
+            <span>Disponible para proyectos técnicos & consultoría B2B</span>
           </div>
 
           {/* Main Title & Role */}
@@ -53,14 +57,14 @@ import "../styles/global.css";
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
               Brayan Espitia
             </h1>
-            <p class="text-lg sm:text-xl font-semibold text-muted-foreground">
-              AI Systems Architect <span class="text-border">/</span> FullStack Developer <span class="text-border">/</span> Blockchain
+            <p class="text-base sm:text-lg lg:text-xl font-bold text-foreground/90 font-mono tracking-tight">
+              AI Systems Architect <span class="text-primary font-bold">|</span> Full-Stack & Web3 Developer
             </p>
           </div>
 
           {/* Bio text */}
-          <p class="text-base text-muted-foreground leading-relaxed max-w-xl">
-            Especializado en diseñar arquitecturas escalables que combinan <strong class="text-foreground font-medium">Sistemas de IA</strong>, aplicaciones web modernas de alto rendimiento y ecosistemas descentralizados en <strong class="text-foreground font-medium">Web3 & Blockchain</strong>.
+          <p class="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
+            Diseño arquitecturas escalables que combinan <strong class="text-foreground font-semibold">Sistemas de IA & Agentes autónomos</strong>, aplicaciones web de alto rendimiento y ecosistemas descentralizados en <strong class="text-foreground font-semibold">Web3 & Tokenización</strong>.
           </p>
 
           {/* Action CTAs */}
@@ -68,43 +72,36 @@ import "../styles/global.css";
             <a
               href="#projects"
               id="hero-btn-projects"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-foreground text-background text-sm font-semibold hover:opacity-90 active:scale-95 transition"
+              class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg bg-foreground text-background text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-95 transition shadow-xs"
             >
               <span>Ver Proyectos</span>
               <span>📂</span>
             </a>
+            
             <a
-              href="#contact"
-              id="hero-btn-contact"
-              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-secondary-foreground text-sm font-medium border border-border/70 hover:bg-secondary/80 active:scale-95 transition"
+              href="https://www.linkedin.com/in/brayan-espitia-615ab3127"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="hero-btn-linkedin-main"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0A66C2] text-white text-xs sm:text-sm font-semibold hover:opacity-90 active:scale-95 transition shadow-xs"
             >
-              <span>Contactar</span>
-              <span>✉️</span>
+              <LinkedInIcon className="w-4 h-4 text-white" />
+              <span>Conectar en LinkedIn</span>
+              <span class="text-xs">↗</span>
             </a>
-            <div class="flex items-center gap-2">
-              <a
-                href="https://github.com/Brayan10j"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="hero-btn-github"
-                class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 text-sm font-medium transition"
-                title="GitHub"
-              >
-                <span>🐙</span>
-                <span class="text-xs">GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/brayan-espitia-615ab3127/"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="hero-btn-linkedin"
-                class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 text-sm font-medium transition"
-                title="LinkedIn"
-              >
-                <span>💼</span>
-                <span class="text-xs">LinkedIn</span>
-              </a>
-            </div>
+
+            <a
+              href="https://github.com/Brayan10j"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="hero-btn-github"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg text-muted-foreground hover:text-foreground bg-secondary/60 hover:bg-secondary text-xs sm:text-sm font-medium border border-border/50 transition"
+              title="GitHub (@Brayan10j)"
+              aria-label="GitHub"
+            >
+              <GitHubIcon className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
           </div>
         </div>
 
@@ -133,33 +130,33 @@ import "../styles/global.css";
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="space-y-2">
+          <div class="space-y-2 p-4 rounded-xl border border-border/50 bg-secondary/15 hover:border-primary/30 transition">
             <div class="flex items-center gap-2 text-foreground font-semibold">
-              <span>🧠</span>
-              <h3>AI Systems & Agentes</h3>
+              <span class="text-xl">🧠</span>
+              <h3 class="text-sm font-bold">AI Systems & Agentes</h3>
             </div>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Diseño de sistemas LLM, orquestación de agentes autónomos, pipelines RAG con bases de datos vectoriales y automatizaciones con n8n y LangChain.
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Diseño de sistemas LLM, orquestación de agentes autónomos, extractores documentales con visión, pipelines RAG y automatizaciones complejas con n8n y LangChain.
             </p>
           </div>
 
-          <div class="space-y-2">
+          <div class="space-y-2 p-4 rounded-xl border border-border/50 bg-secondary/15 hover:border-primary/30 transition">
             <div class="flex items-center gap-2 text-foreground font-semibold">
-              <span>💻</span>
-              <h3>FullStack Moderno</h3>
+              <span class="text-xl">💻</span>
+              <h3 class="text-sm font-bold">FullStack Escalable</h3>
             </div>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Desarrollo con Next.js (App Router), TypeScript, React, Node.js y bases de datos relacionales como PostgreSQL y Supabase.
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Desarrollo frontend y backend con Next.js (App Router), TypeScript, React, Node.js y bases de datos relacionales (PostgreSQL, Supabase, Cloud SQL).
             </p>
           </div>
 
-          <div class="space-y-2">
+          <div class="space-y-2 p-4 rounded-xl border border-border/50 bg-secondary/15 hover:border-primary/30 transition">
             <div class="flex items-center gap-2 text-foreground font-semibold">
-              <span>⛓️</span>
-              <h3>Blockchain & Web3</h3>
+              <span class="text-xl">⛓️</span>
+              <h3 class="text-sm font-bold">Blockchain & Web3</h3>
             </div>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Smart contracts seguros en Solidity, tokenización de Real World Assets (RWA), pasarelas de pago cripto y arquitecturas multicadena.
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Smart contracts seguros en Solidity, tokenización de Real World Assets (RWA), pasarelas de pago Web3 y arquitecturas multicadena auditables.
             </p>
           </div>
         </div>
@@ -201,7 +198,7 @@ import "../styles/global.css";
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
             04 / Proyectos Destacados
           </h2>
-          <span class="text-xs text-muted-foreground font-mono">Producción & Web3</span>
+          <span class="text-xs text-muted-foreground font-mono">Producción, AI & Web3</span>
         </div>
 
         <ProjectFilter client:load />
@@ -213,9 +210,9 @@ import "../styles/global.css";
       <div class="border-t border-border/50 pt-10">
         <div class="flex items-baseline justify-between mb-6">
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
-            05 / Trayectoria
+            05 / Trayectoria & Hitos
           </h2>
-          <span class="text-xs text-muted-foreground font-mono">Experiencia Relevante</span>
+          <span class="text-xs text-muted-foreground font-mono">Verificado en LinkedIn</span>
         </div>
 
         <ExperienceTimeline />
@@ -229,7 +226,7 @@ import "../styles/global.css";
           <h2 class="text-xs uppercase tracking-widest font-mono text-muted-foreground">
             06 / Contacto Directo
           </h2>
-          <span class="text-xs text-muted-foreground font-mono">Hablemos</span>
+          <span class="text-xs text-muted-foreground font-mono">LinkedIn</span>
         </div>
 
         <ContactCard client:load />
@@ -241,15 +238,32 @@ import "../styles/global.css";
   <footer class="border-t border-border/40 py-8 mt-16 text-center text-xs text-muted-foreground">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p>
-        © 2025 <span class="text-foreground font-medium">Brayan Espitia</span>
+        © 2026 <span class="text-foreground font-medium">Brayan Espitia</span> · <span class="font-mono text-xs">AI Systems Architect | Full-Stack & Web3</span>
       </p>
       <div class="flex items-center gap-4">
-        <a href="#hero" class="hover:text-foreground transition">Inicio ⚡</a>
-        <a href="https://github.com/Brayan10j" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition">GitHub 🐙</a>
-        <a href="https://www.linkedin.com/in/brayan-espitia-615ab3127/" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition">LinkedIn 💼</a>
+        <a href="#hero" class="hover:text-foreground transition flex items-center gap-1">
+          <span>Inicio</span>
+          <span>⚡</span>
+        </a>
+        <a
+          href="https://github.com/Brayan10j"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-foreground transition flex items-center gap-1.5"
+        >
+          <GitHubIcon className="w-3.5 h-3.5" />
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/brayan-espitia-615ab3127"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-foreground transition flex items-center gap-1.5"
+        >
+          <LinkedInIcon className="w-3.5 h-3.5 text-[#0A66C2]" />
+          <span>LinkedIn</span>
+        </a>
       </div>
     </div>
   </footer>
 </Layout>
-
-
