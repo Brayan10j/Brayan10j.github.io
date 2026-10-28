@@ -3,24 +3,33 @@ import { LinkedInIcon, ExternalLinkIcon } from "./icons/PlatformIcons";
 
 const milestones = [
   {
-    title: "AI Systems Architect & Agentes",
+    titleEs: "AI Systems Architect & Agentes",
+    titleEn: "AI Systems Architect & Agents",
     emoji: "🧠",
-    subtitle: "Orquestación & LLMs",
-    description: "Diseño e implementación de agentes autónomos, extractores documentales de alta precisión con visión, pipelines RAG con bases vectoriales y flujos de automatización con n8n y LangChain.",
+    subtitleEs: "Orquestación & LLMs",
+    subtitleEn: "Orchestration & LLMs",
+    descriptionEs: "Diseño e implementación de agentes autónomos, extractores documentales de alta precisión con visión, pipelines RAG con bases vectoriales y flujos de automatización con n8n y LangChain.",
+    descriptionEn: "Design and deployment of autonomous agents, vision-based high-precision document extractors, vector-based RAG pipelines, and complex automation workflows with n8n and LangChain.",
     stack: ["Gemini AI", "LangChain", "n8n", "Vector DBs", "Python/Node"],
   },
   {
-    title: "Full-Stack Engineer & Cloud",
+    titleEs: "Full-Stack Engineer & Cloud",
+    titleEn: "Full-Stack Engineer & Cloud",
     emoji: "⚡",
-    subtitle: "Frontend & Backend Escalable",
-    description: "Desarrollo de arquitecturas web modernas con Next.js (App Router), TypeScript, React, APIs resilientes en Node.js y bases de datos relacionales (PostgreSQL, Supabase, Cloud SQL).",
+    subtitleEs: "Frontend & Backend Escalable",
+    subtitleEn: "Scalable Frontend & Backend",
+    descriptionEs: "Desarrollo de arquitecturas web modernas con Next.js (App Router), TypeScript, React, APIs resilientes en Node.js y bases de datos relacionales (PostgreSQL, Supabase, Cloud SQL).",
+    descriptionEn: "Engineering modern web architectures with Next.js (App Router), TypeScript, React, resilient Node.js APIs, and relational databases (PostgreSQL, Supabase, Cloud SQL).",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Docker", "GCP"],
   },
   {
-    title: "Web3 & Smart Contracts",
+    titleEs: "Web3 & Smart Contracts",
+    titleEn: "Web3 & Smart Contracts",
     emoji: "⛓️",
-    subtitle: "Blockchain & Tokenización RWA",
-    description: "Despliegue y auditoría de contratos inteligentes en Solidity, arquitecturas multicadena, tokenización de Real World Assets y pasarelas de pago descentralizadas.",
+    subtitleEs: "Blockchain & Tokenización RWA",
+    subtitleEn: "Blockchain & RWA Tokenization",
+    descriptionEs: "Despliegue y auditoría de contratos inteligentes en Solidity, arquitecturas multicadena, tokenización de Real World Assets y pasarelas de pago descentralizadas.",
+    descriptionEn: "Deployment and auditing of Solidity smart contracts, multi-chain architectures, Real World Asset tokenization, and decentralized payment gateways.",
     stack: ["Solidity", "Smart Contracts", "Ethers.js", "RWA", "Web3 Payments"],
   },
 ];
@@ -34,19 +43,31 @@ const milestones = [
         <div class="space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-2xl">{item.emoji}</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/40">
-              {item.subtitle}
+            <span
+              class="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/40"
+              data-i18n-es={item.subtitleEs}
+              data-i18n-en={item.subtitleEn}
+            >
+              {item.subtitleEs}
             </span>
           </div>
 
           <div>
-            <h3 class="text-base font-bold text-foreground">
-              {item.title}
+            <h3
+              class="text-base font-bold text-foreground"
+              data-i18n-es={item.titleEs}
+              data-i18n-en={item.titleEn}
+            >
+              {item.titleEs}
             </h3>
           </div>
 
-          <p class="text-xs text-muted-foreground leading-relaxed">
-            {item.description}
+          <p
+            class="text-xs text-muted-foreground leading-relaxed"
+            data-i18n-es={item.descriptionEs}
+            data-i18n-en={item.descriptionEn}
+          >
+            {item.descriptionEs}
           </p>
         </div>
 
@@ -66,9 +87,18 @@ const milestones = [
     <div class="space-y-1.5 max-w-xl">
       <div class="flex items-center gap-2 text-xs font-semibold text-foreground">
         <LinkedInIcon className="w-4 h-4 text-[#0A66C2]" />
-        <span>Historial Profesional Verificado</span>
+        <span
+          data-i18n-es="Historial Profesional Verificado"
+          data-i18n-en="Verified Professional History"
+        >
+          Historial Profesional Verificado
+        </span>
       </div>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      <p
+        class="text-xs sm:text-sm text-muted-foreground leading-relaxed"
+        data-i18n-es="Los roles en empresas, recomendaciones y trayectoria cronológica completa se encuentran disponibles y actualizados en LinkedIn."
+        data-i18n-en="Company roles, endorsements, and complete chronological work history are maintained and verified on LinkedIn."
+      >
         Los roles en empresas, recomendaciones y trayectoria cronológica completa se encuentran disponibles y actualizados en LinkedIn.
       </p>
     </div>
@@ -81,7 +111,12 @@ const milestones = [
       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] text-white text-xs font-semibold hover:opacity-90 active:scale-95 transition shadow-xs shrink-0 self-start sm:self-center"
     >
       <LinkedInIcon className="w-4 h-4 text-white" />
-      <span>Ver Trayectoria en LinkedIn</span>
+      <span
+        data-i18n-es="Ver Trayectoria en LinkedIn"
+        data-i18n-en="View Milestones on LinkedIn"
+      >
+        Ver Trayectoria en LinkedIn
+      </span>
       <ExternalLinkIcon className="w-3.5 h-3.5 text-white/90" />
     </a>
   </div>

@@ -9,26 +9,42 @@ import { services } from "../data/services";
         {/* Header with Emoji & Category */}
         <div class="flex items-center justify-between gap-2">
           <span class="text-2xl">{service.emoji}</span>
-          <span class="text-[10px] font-mono text-muted-foreground bg-secondary/50 px-2 py-0.5 rounded border border-border/40 truncate max-w-[190px]">
+          <span
+            class="text-[10px] font-mono text-muted-foreground bg-secondary/50 px-2 py-0.5 rounded border border-border/40 truncate max-w-[190px]"
+            data-i18n-es={service.category}
+            data-i18n-en={service.categoryEn || service.category}
+          >
             {service.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 class="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+        <h3
+          class="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug"
+          data-i18n-es={service.title}
+          data-i18n-en={service.titleEn || service.title}
+        >
           {service.title}
         </h3>
 
         {/* Description */}
-        <p class="text-xs text-muted-foreground/90 leading-relaxed">
+        <p
+          class="text-xs text-muted-foreground/90 leading-relaxed"
+          data-i18n-es={service.description}
+          data-i18n-en={service.descriptionEn || service.description}
+        >
           {service.description}
         </p>
       </div>
 
       {/* Highlights / Tags */}
       <div class="pt-4 mt-4 border-t border-border/40 flex flex-wrap gap-1">
-        {service.highlights.map((tag) => (
-          <span class="text-[11px] px-2 py-0.5 rounded bg-secondary/40 text-muted-foreground border border-border/30 font-mono">
+        {service.highlights.map((tag, idx) => (
+          <span
+            class="text-[11px] px-2 py-0.5 rounded bg-secondary/40 text-muted-foreground border border-border/30 font-mono"
+            data-i18n-es={tag}
+            data-i18n-en={service.highlightsEn ? service.highlightsEn[idx] || tag : tag}
+          >
             {tag}
           </span>
         ))}

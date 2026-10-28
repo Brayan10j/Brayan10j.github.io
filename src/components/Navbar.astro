@@ -1,5 +1,6 @@
 ---
 import { ModeToggle } from "./ModeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md transition-all">
@@ -18,15 +19,18 @@ import { ModeToggle } from "./ModeToggle";
     </a>
 
     {/* Actions - Clean & Minimalist */}
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5 sm:gap-3">
+      <LanguageToggle client:load />
+
       <a
         href="#contact"
         id="nav-contact-btn"
-        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition"
       >
-        <span>Contacto</span>
+        <span data-i18n-es="Contacto" data-i18n-en="Contact">Contacto</span>
         <span>✉️</span>
       </a>
+
       <ModeToggle client:load />
     </div>
   </div>

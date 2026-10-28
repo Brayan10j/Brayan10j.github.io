@@ -1,6 +1,6 @@
 {
-  "summary":  "Plan revisado: Navbar ultra-limpio sin enlaces en el centro, uso de la URL pública oficial de LinkedIn (https://www.linkedin.com/in/brayan-espitia-615ab3127), remoción total de WhatsApp y tarjeta compacta de trayectoria.",
-  "updatedAt":  "2026-10-28T15:49:54.476189463Z",
+  "summary":  "Plan para implementar un selector de idioma bilingüe (ES / EN) ultraligero con toggle rápido en el Navbar, detección automática de idioma del navegador y persistencia en localStorage, manteniendo 100% la compatibilidad estática con GitHub Pages.",
+  "updatedAt":  "2026-10-28T19:32:50.125126874Z",
   "requestFeedback":  true,
   "userFacing":  true
 }

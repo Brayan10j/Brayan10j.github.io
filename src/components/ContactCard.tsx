@@ -3,8 +3,12 @@ import {
   GitHubIcon,
   ExternalLinkIcon,
 } from "./icons/PlatformIcons";
+import { useLocale } from "../lib/i18n";
+import { translations } from "../data/translations";
 
 export function ContactCard() {
+  const [locale] = useLocale();
+  const t = translations[locale].contact;
   const linkedInUrl = "https://www.linkedin.com/in/brayan-espitia-615ab3127";
   const gitHubUrl = "https://github.com/Brayan10j";
 
@@ -14,13 +18,13 @@ export function ContactCard() {
         <div className="space-y-2 max-w-lg">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Disponible para Proyectos & Consultoría B2B</span>
+            <span>{t.badge}</span>
           </div>
           <h3 className="text-xl font-bold tracking-tight text-foreground">
-            ¿Hablamos de tu próximo reto técnico?
+            {t.title}
           </h3>
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Abierto a roles como <strong>AI Systems Architect</strong>, <strong>Full-Stack Developer</strong> o consultoría técnica especializada en agentes y automatización.
+            {t.desc}
           </p>
         </div>
 
@@ -34,7 +38,7 @@ export function ContactCard() {
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#0A66C2] text-white text-sm font-semibold hover:opacity-90 active:scale-95 transition shadow-sm"
           >
             <LinkedInIcon className="w-4 h-4 text-white" />
-            <span>Contactar vía LinkedIn</span>
+            <span>{t.btnLinkedIn}</span>
             <ExternalLinkIcon className="w-3.5 h-3.5 text-white/90" />
           </a>
         </div>
@@ -64,7 +68,7 @@ export function ContactCard() {
             className="hover:text-foreground transition flex items-center gap-1.5 font-medium"
           >
             <LinkedInIcon className="w-4 h-4 text-[#0A66C2]" />
-            <span>Perfil LinkedIn</span>
+            <span>LinkedIn</span>
           </a>
         </div>
       </div>
