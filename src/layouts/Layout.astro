@@ -1,10 +1,16 @@
+---
+---
 <!doctype html>
 <html lang="es" class="dark scroll-smooth">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Brayan Espitia | AI Systems Architect | Full-Stack & Web3 Developer</title>
-		<meta name="description" content="Portafolio profesional de Brayan Espitia - AI Systems Architect | Full-Stack & Web3 Developer. Soluciones de agentes autónomos, extractores documentales con LLMs, aplicaciones escalables y arquitecturas Web3.">
+		<meta name="description" content="Portafolio de Brayan Espitia - AI Systems Architect | Full-Stack & Web3 Developer">
+		<meta property="og:title" content="Brayan Espitia | AI Systems Architect | Full-Stack & Web3 Developer">
+		<meta property="og:description" content="Portafolio de Brayan Espitia - AI Systems Architect | Full-Stack & Web3 Developer">
+		<meta property="og:type" content="website">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,6 +25,72 @@
 				font-family: 'JetBrains Mono', monospace;
 			}
 		</style>
+
+		<!-- Microsoft Clarity -->
+		<script type="text/javascript" is:inline>
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "zc0d4f50wr");
+		</script>
+
+		<script is:inline>
+			// Theme initialization
+			const getThemePreference = () => {
+				if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+					return localStorage.getItem("theme");
+				}
+				return window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark"
+					: "light";
+			};
+			const isDark = getThemePreference() === "dark";
+			document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+			if (typeof localStorage !== "undefined") {
+				const observer = new MutationObserver(() => {
+					const isDarkMode = document.documentElement.classList.contains("dark");
+					localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+				});
+				observer.observe(document.documentElement, {
+					attributes: true,
+					attributeFilter: ["class"],
+				});
+			}
+
+			// Language initialization and synchronization
+			const applyLanguage = (lang) => {
+				document.documentElement.lang = lang;
+				document.querySelectorAll("[data-i18n-es]").forEach((el) => {
+					const text = el.getAttribute(`data-i18n-${lang}`);
+					if (text) el.textContent = text;
+				});
+			};
+
+			const getInitialLang = () => {
+				if (typeof localStorage !== "undefined" && localStorage.getItem("portfolio_lang")) {
+					return localStorage.getItem("portfolio_lang");
+				}
+				return typeof navigator !== "undefined" &&
+					navigator.language &&
+					navigator.language.toLowerCase().startsWith("es")
+					? "es"
+					: "en";
+			};
+
+			const currentLang = getInitialLang();
+			applyLanguage(currentLang);
+
+			if (typeof window !== "undefined") {
+				window.addEventListener("portfolio-locale-change", (e) => {
+					if (e.detail) applyLanguage(e.detail);
+				});
+				document.addEventListener("DOMContentLoaded", () => {
+					applyLanguage(getInitialLang());
+				});
+			}
+		</script>
 	</head>
 	<body class="bg-background text-foreground min-h-screen selection:bg-indigo-500 selection:text-white antialiased">
 		<slot />

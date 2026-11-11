@@ -19,6 +19,7 @@ export function ProjectFilter() {
   const categories = [
     { id: "all", label: locale === "en" ? "All" : "Todos", emoji: "🌟" },
     { id: "ai", label: "AI & Agents", emoji: "🧠" },
+    { id: "saas", label: "Micro-SaaS", emoji: "🚀" },
     { id: "fullstack", label: "FullStack Web", emoji: "⚡" },
     { id: "web3", label: "Web3 & RWA", emoji: "⛓️" },
   ];
@@ -27,7 +28,9 @@ export function ProjectFilter() {
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
       const matchesCategory =
-        activeCategory === "all" || project.category === activeCategory;
+        activeCategory === "all" ||
+        project.category === activeCategory ||
+        (activeCategory === "fullstack" && project.category === "saas");
 
       if (!matchesCategory) return false;
 
@@ -213,15 +216,19 @@ export function ProjectFilter() {
                     <div className="mb-4 p-2.5 rounded-lg bg-secondary/30 border border-border/40 space-y-1.5">
                       <div className="flex items-center justify-between text-[11px] font-semibold text-foreground">
                         <span className="flex items-center gap-1.5">
-                          <span>🤖</span>
-                          <span>{t.includedAgents(project.subProjects.length)}</span>
+                          <span>{project.category === "saas" ? "🚀" : "🤖"}</span>
+                          <span>
+                            {project.category === "saas"
+                              ? t.includedSaas(project.subProjects.length)
+                              : t.includedAgents(project.subProjects.length)}
+                          </span>
                         </span>
                         <span className="text-[10px] text-muted-foreground font-mono">
                           Modal ↗
                         </span>
                       </div>
                       <div className="text-[11px] text-muted-foreground truncate">
-                        📑{" "}
+                        {project.subProjects[0].emoji}{" "}
                         {locale === "en" && project.subProjects[0].titleEn
                           ? project.subProjects[0].titleEn
                           : project.subProjects[0].title}
@@ -252,8 +259,8 @@ export function ProjectFilter() {
                       onClick={() => setModalProject(project)}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:opacity-80 transition cursor-pointer bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20"
                     >
-                      <span>🧠</span>
-                      <span>{t.viewAgents}</span>
+                      <span>{project.emoji || "🧠"}</span>
+                      <span>{project.category === "saas" ? t.viewSaas : t.viewAgents}</span>
                       <ExternalLinkIcon className="w-3 h-3" />
                     </button>
                   ) : (
@@ -340,7 +347,9 @@ export function ProjectFilter() {
             {/* Modal Body - Sub-Projects List */}
             <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                {t.modalCategoryTitle}
+                {modalProject.category === "saas"
+                  ? t.modalSaasTitle
+                  : t.modalCategoryTitle}
               </div>
 
               {modalProject.subProjects && modalProject.subProjects.length > 0 ? (
@@ -437,7 +446,11 @@ export function ProjectFilter() {
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition"
                           >
                             <span>{subItem.emoji}</span>
-                            <span>{t.modalOpenAgent}</span>
+                            <span>
+                              {modalProject.category === "saas"
+                                ? t.modalOpenSaas
+                                : t.modalOpenAgent}
+                            </span>
                             <ExternalLinkIcon className="w-3.5 h-3.5" />
                           </a>
                         </div>

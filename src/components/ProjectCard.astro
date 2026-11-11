@@ -1,15 +1,20 @@
 ---
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge"; // Import Badge component
+import { Badge } from "./ui/badge";
 
 interface Props {
   title: string;
   description: string;
-  technologies: string;
+  technologies: string | string[];
   href: string;
 }
 
 const { title, description, technologies, href } = Astro.props;
+const techList = Array.isArray(technologies)
+  ? technologies
+  : typeof technologies === "string"
+  ? technologies.split(",").map((t) => t.trim()).filter(Boolean)
+  : [];
 ---
 
 <div
@@ -23,10 +28,10 @@ const { title, description, technologies, href } = Astro.props;
       {description}
     </p>
     <div class="flex flex-wrap gap-2 mb-4">
-      {technologies.split(',').map(tech => tech.trim() && <Badge variant="secondary">{tech.trim()}</Badge>)}
+      {techList.map((tech) => <Badge variant="secondary">{tech}</Badge>)}
     </div>
   </div>
-  <div class="p-6 pt-0"> {/* Adjusted padding */}
+  <div class="p-6 pt-0">
     <Button asChild>
       <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/80 transition duration-300 text-base font-semibold shadow-md">
         Ver Proyecto

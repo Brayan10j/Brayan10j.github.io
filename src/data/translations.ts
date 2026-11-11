@@ -39,11 +39,15 @@ export interface Translations {
     noResultsTitle: string;
     noResultsDesc: string;
     includedAgents: (count: number) => string;
+    includedSaas: (count: number) => string;
     viewAgents: string;
+    viewSaas: string;
     exploreProject: string;
     modalCategoryTitle: string;
+    modalSaasTitle: string;
     modalKeyCapabilities: string;
     modalOpenAgent: string;
+    modalOpenSaas: string;
     modalUpdated: string;
     modalClose: string;
   };
@@ -120,11 +124,16 @@ export const translations: Record<Locale, Translations> = {
         "Intenta buscar por otro término como 'Gemini', 'TypeScript' o 'Solidity'.",
       includedAgents: (count) =>
         `Agentes & Soluciones Incluidas (${count})`,
+      includedSaas: (count) =>
+        `Micro-SaaS & Apps Incluidas (${count})`,
       viewAgents: "Ver Agentes & Proyectos",
+      viewSaas: "Ver Micro-SaaS & Apps",
       exploreProject: "Explorar Proyecto",
       modalCategoryTitle: "Proyectos y Agentes de esta Categoría",
+      modalSaasTitle: "Aplicaciones Micro-SaaS en Producción",
       modalKeyCapabilities: "Capacidades clave:",
       modalOpenAgent: "Abrir Agente / Proyecto",
+      modalOpenSaas: "Abrir Aplicación",
       modalUpdated: "Actualizado continuamente",
       modalClose: "Cerrar",
     },
@@ -203,11 +212,16 @@ export const translations: Record<Locale, Translations> = {
         "Try searching for another term like 'Gemini', 'TypeScript', or 'Solidity'.",
       includedAgents: (count) =>
         `Included Agents & Solutions (${count})`,
+      includedSaas: (count) =>
+        `Included Micro-SaaS Apps (${count})`,
       viewAgents: "View Agents & Projects",
+      viewSaas: "View Micro-SaaS Apps",
       exploreProject: "Explore Project",
       modalCategoryTitle: "Projects & Agents in this Category",
+      modalSaasTitle: "Live Micro-SaaS Applications in Production",
       modalKeyCapabilities: "Key capabilities:",
       modalOpenAgent: "Open Agent / Project",
+      modalOpenSaas: "Open Application",
       modalUpdated: "Continuously updated",
       modalClose: "Close",
     },
