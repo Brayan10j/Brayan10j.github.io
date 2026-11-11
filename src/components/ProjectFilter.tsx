@@ -60,7 +60,7 @@ export function ProjectFilter() {
     });
   }, [activeCategory, searchQuery, locale]);
 
-  // Close modal with Escape key and prevent background scroll
+  // Close modal with Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -69,14 +69,10 @@ export function ProjectFilter() {
     };
 
     if (modalProject) {
-      document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = "unset";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalProject]);
@@ -176,10 +172,24 @@ export function ProjectFilter() {
                 ? project.badgeTextEn
                 : project.badgeText;
 
+            const isModal = Boolean(
+              project.hasModal ||
+                (project.subProjects && project.subProjects.length > 0)
+            );
+
             return (
               <div
                 key={project.id}
-                className="flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-card hover:border-foreground/20 hover:shadow-xs transition duration-200"
+                onClick={(e) => {
+                  const target = e.target as HTMLElement;
+                  if (target.closest("a") || target.closest("button")) return;
+                  if (isModal) {
+                    setModalProject(project);
+                  }
+                }}
+                className={`flex flex-col justify-between p-5 rounded-xl border border-border/70 bg-card hover:border-foreground/30 hover:shadow-xs transition duration-200 ${
+                  isModal ? "cursor-pointer group hover:border-primary/40" : ""
+                }`}
               >
                 <div>
                   {/* Header */}
@@ -199,7 +209,11 @@ export function ProjectFilter() {
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="font-bold text-base text-foreground mb-1 leading-snug">
+                  <h3
+                    className={`font-bold text-base text-foreground mb-1 leading-snug ${
+                      isModal ? "group-hover:text-primary transition-colors" : ""
+                    }`}
+                  >
                     {currentTitle}
                   </h3>
                   <p className="text-xs font-medium text-primary mb-2.5">
@@ -301,60 +315,78 @@ export function ProjectFilter() {
           id="project-category-modal"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs animate-fade-in"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 bg-black/75 backdrop-blur-xs overscroll-contain animate-fade-in"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setModalProject(null);
             }
           }}
         >
-          <div className="relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl bg-card border border-border text-card-foreground shadow-2xl overflow-hidden">
+          <div className="relative w-full max-w-2xl max-h-[92vh] sm:max-h-[85vh] flex flex-col rounded-t-2xl sm:rounded-2xl bg-card border border-border/80 text-card-foreground shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 sm:zoom-in-95 duration-200">
             {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 p-5 sm:p-6 border-b border-border/60 bg-secondary/20">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{modalProject.emoji}</span>
-                  <span className="text-xs font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/50">
-                    {locale === "en" && modalProject.badgeTextEn
-                      ? modalProject.badgeTextEn
-                      : modalProject.badgeText}
-                  </span>
+            <div className="shrink-0 p-4 sm:p-5 border-b border-border/60 bg-secondary/30">
+              {/* Mobile handle pull bar */}
+              <div className="sm:hidden w-12 h-1 bg-muted-foreground/30 rounded-full mx-auto mb-3" />
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-2xl">{modalProject.emoji}</span>
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/50">
+                      {locale === "en" && modalProject.badgeTextEn
+                        ? modalProject.badgeTextEn
+                        : modalProject.badgeText}
+                    </span>
+                    {modalProject.subProjects && modalProject.subProjects.length > 0 && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {locale === "en"
+                          ? `${modalProject.subProjects.length} items`
+                          : `${modalProject.subProjects.length} soluciones`}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-lg sm:text-xl font-bold text-foreground">
+                    {locale === "en" && modalProject.titleEn
+                      ? modalProject.titleEn
+                      : modalProject.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {locale === "en" && modalProject.taglineEn
+                      ? modalProject.taglineEn
+                      : modalProject.tagline}
+                  </p>
                 </div>
-                <h2 className="text-lg sm:text-xl font-bold text-foreground">
-                  {locale === "en" && modalProject.titleEn
-                    ? modalProject.titleEn
-                    : modalProject.title}
-                </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  {locale === "en" && modalProject.taglineEn
-                    ? modalProject.taglineEn
-                    : modalProject.tagline}
-                </p>
-              </div>
 
-              {/* Close Button */}
-              <button
-                type="button"
-                id="btn-close-modal"
-                onClick={() => setModalProject(null)}
-                className="shrink-0 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/70 transition cursor-pointer text-sm"
-                aria-label="Cerrar modal"
-              >
-                ✕
-              </button>
+                {/* Close Button */}
+                <button
+                  type="button"
+                  id="btn-close-modal"
+                  onClick={() => setModalProject(null)}
+                  className="shrink-0 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/70 transition cursor-pointer text-base leading-none"
+                  aria-label="Cerrar modal"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
 
-            {/* Modal Body - Sub-Projects List */}
-            <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
-              <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                {modalProject.category === "saas"
-                  ? t.modalSaasTitle
-                  : t.modalCategoryTitle}
+            {/* Modal Body - Scrollable Sub-Projects List */}
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 space-y-4 overscroll-contain modal-scrollbar">
+              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-muted-foreground pb-1 border-b border-border/30">
+                <span>
+                  {modalProject.category === "saas"
+                    ? t.modalSaasTitle
+                    : t.modalCategoryTitle}
+                </span>
+                {modalProject.subProjects && modalProject.subProjects.length > 2 && (
+                  <span className="text-[10px] text-muted-foreground/80 normal-case font-sans">
+                    {locale === "en" ? "↓ Scroll to see all" : "↓ Desliza para ver todos"}
+                  </span>
+                )}
               </div>
 
               {modalProject.subProjects && modalProject.subProjects.length > 0 ? (
-                <div className="space-y-4">
-                  {modalProject.subProjects.map((subItem: SubProjectItem) => {
+                <div className="space-y-4 pb-2">
+                  {modalProject.subProjects.map((subItem: SubProjectItem, index: number) => {
                     const subTitle =
                       locale === "en" && subItem.titleEn
                         ? subItem.titleEn
@@ -380,17 +412,22 @@ export function ProjectFilter() {
                       <div
                         key={subItem.id}
                         id={`subproject-${subItem.id}`}
-                        className="p-4 sm:p-5 rounded-xl border border-border/80 bg-secondary/15 hover:border-primary/40 transition space-y-3.5"
+                        className="p-4 sm:p-5 rounded-xl border border-border/80 bg-secondary/15 hover:border-primary/40 transition space-y-3.5 shadow-2xs"
                       >
                         {/* Sub-item Header */}
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                           <div className="flex items-center gap-2.5">
                             <span className="text-2xl">{subItem.emoji}</span>
                             <div>
-                              <h3 className="text-sm sm:text-base font-bold text-foreground">
-                                {subTitle}
-                              </h3>
-                              <p className="text-xs text-muted-foreground font-medium">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-secondary text-muted-foreground border border-border/40">
+                                  #{index + 1}
+                                </span>
+                                <h3 className="text-sm sm:text-base font-bold text-foreground">
+                                  {subTitle}
+                                </h3>
+                              </div>
+                              <p className="text-xs text-muted-foreground font-medium mt-0.5">
                                 {subTagline}
                               </p>
                             </div>
@@ -410,7 +447,7 @@ export function ProjectFilter() {
 
                         {/* Key features if present */}
                         {subFeatures && (
-                          <div className="space-y-1 pt-1">
+                          <div className="space-y-1.5 pt-1">
                             <span className="text-[11px] font-semibold text-foreground">
                               {t.modalKeyCapabilities}
                             </span>
@@ -437,13 +474,22 @@ export function ProjectFilter() {
                         </div>
 
                         {/* Action Link */}
-                        <div className="pt-2 border-t border-border/30 flex justify-end">
+                        <div className="pt-2 border-t border-border/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                          <a
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] text-muted-foreground hover:text-foreground font-mono truncate hover:underline"
+                            title={subItem.href}
+                          >
+                            {subItem.href.replace(/^https?:\/\//, "")}
+                          </a>
                           <a
                             href={subItem.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             id={`btn-open-agent-${subItem.id}`}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition"
+                            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition shrink-0 shadow-xs w-full sm:w-auto"
                           >
                             <span>{subItem.emoji}</span>
                             <span>
@@ -462,8 +508,8 @@ export function ProjectFilter() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-border/60 bg-secondary/10 flex items-center justify-between text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
+            <div className="shrink-0 p-3.5 sm:p-4 border-t border-border/60 bg-secondary/20 flex items-center justify-between text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5 text-[11px] sm:text-xs">
                 <span>⚡</span>
                 <span>{t.modalUpdated}</span>
               </span>
@@ -471,7 +517,7 @@ export function ProjectFilter() {
                 type="button"
                 id="btn-close-modal-footer"
                 onClick={() => setModalProject(null)}
-                className="px-3 py-1.5 rounded-md bg-secondary hover:bg-secondary/80 text-foreground text-xs font-medium transition cursor-pointer"
+                className="px-3.5 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold transition cursor-pointer border border-border/50"
               >
                 {t.modalClose}
               </button>
