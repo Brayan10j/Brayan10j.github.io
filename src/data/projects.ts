@@ -219,7 +219,7 @@ export const projects: ProjectItem[] = [
         description: "Canal ágil de recepción y preparación de pedidos para restaurantes, tiendas y domicilios. Emite automáticamente dos vistas: comanda logística para el repartidor con enlace directo a coordenadas GPS (Waze / Google Maps) y resumen limpio de compra para el cliente final, evitando cancelaciones y demoras.",
         descriptionEn: "Agile order intake and dispatch system for restaurants, dark kitchens, and local stores. Automatically generates dual views: delivery courier sheet with one-touch GPS navigation (Waze / Google Maps) and clean customer purchase receipts to curb order abandonment.",
         technologies: ["Next.js", "Geolocation / GPS", "Waze & Google Maps", "WhatsApp Commerce", "Tailwind CSS"],
-        href: "https://despachos-ivory.vercel.app/",
+        href: "https://despachosapp.vercel.app/",
         badgeText: "🟢 Live / Logística",
         badgeTextEn: "🟢 Live / Logistics",
         status: "live",
