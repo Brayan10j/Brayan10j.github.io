@@ -50,6 +50,8 @@ export interface Translations {
     modalOpenSaas: string;
     modalUpdated: string;
     modalClose: string;
+    joinChannel: string;
+    channelCtaDesc: string;
   };
   experience: {
     sectionNum: string;
@@ -136,6 +138,8 @@ export const translations: Record<Locale, Translations> = {
       modalOpenSaas: "Abrir Aplicación",
       modalUpdated: "Actualizado continuamente",
       modalClose: "Cerrar",
+      joinChannel: "Unirse al Canal de WhatsApp",
+      channelCtaDesc: "Recibe nuevas herramientas gratis, actualizaciones y mejoras en tiempo real.",
     },
     experience: {
       sectionNum: "05 / Trayectoria & Hitos",
@@ -224,6 +228,8 @@ export const translations: Record<Locale, Translations> = {
       modalOpenSaas: "Open Application",
       modalUpdated: "Continuously updated",
       modalClose: "Close",
+      joinChannel: "Join WhatsApp Channel",
+      channelCtaDesc: "Get new free utilities, product updates, and live releases.",
     },
     experience: {
       sectionNum: "05 / Milestones & Experience",

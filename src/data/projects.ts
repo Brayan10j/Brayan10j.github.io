@@ -34,6 +34,7 @@ export interface ProjectItem {
   badgeText: string;
   badgeTextEn?: string;
   hasModal?: boolean;
+  channelUrl?: string;
   subProjects?: SubProjectItem[];
 }
 
@@ -116,8 +117,8 @@ export const projects: ProjectItem[] = [
     emoji: "🚀",
     tagline: "Suite de micro-herramientas SaaS para gestión operativa y financiera",
     taglineEn: "Suite of operational micro-SaaS tools for payments, logistics & cash flow",
-    description: "Ecosistema de soluciones SaaS independientes diseñadas para resolver ineficiencias críticas en pymes y profesionales: control de cobros deportivos, división y liquidación de cuentas compartidas, arqueo de caja local-first y despacho de pedidos con GPS.",
-    descriptionEn: "Ecosystem of standalone micro-SaaS tools solving concrete operational bottlenecks: sports fee collections, shared expense settlement, local-first daily cash flow audits, and dual GPS dispatch logistics.",
+    description: "Ecosistema de aplicaciones Micro-SaaS gratuitas y local-first en producción abierta para Colombia: arqueo de caja diario, control de cuotas deportivas, división de cuentas con Llaves Bre-B y despacho dual con GPS.",
+    descriptionEn: "Ecosystem of open-access, local-first Micro-SaaS utilities live in production: daily cash flow audits, sports academy collections, expense splitting with instant payment keys, and dual GPS delivery dispatch.",
     category: "saas",
     technologies: ["Next.js", "React", "TypeScript", "PWA Local-First", "Tailwind CSS", "WhatsApp API"],
     href: "https://cuentasclaras-co.vercel.app/",
@@ -127,6 +128,7 @@ export const projects: ProjectItem[] = [
     badgeText: "🚀 Micro-SaaS Suite",
     badgeTextEn: "🚀 Micro-SaaS Suite",
     hasModal: true,
+    channelUrl: "https://whatsapp.com/channel/0029Vb9C4ScEFeXsn5sTnH0U",
     subProjects: [
       {
         id: "cuentas-claras",
@@ -243,17 +245,17 @@ export const projects: ProjectItem[] = [
     title: "Flujo Digital",
     titleEn: "Flujo Digital",
     emoji: "⚡",
-    tagline: "Automatización de procesos contables y catálogos WhatsApp",
-    taglineEn: "Accounting workflow automation & WhatsApp Business catalogs",
-    description: "Plataforma de automatización operativa para empresas. Integra software contable (Siigo, Alegra), catálogos digitales interactivos en WhatsApp Business y sincronización de datos en tiempo real.",
-    descriptionEn: "Operational automation platform for businesses. Integrates cloud accounting software (Siigo, Alegra), interactive WhatsApp Business digital catalogs, and real-time data sync.",
+    tagline: "Agencia de software, automatización con IA y catálogo en WhatsApp",
+    taglineEn: "Software agency, AI automation & WhatsApp Business solutions",
+    description: "Estudio y agencia enfocada en automatización de procesos, desarrollo de software a medida, integraciones contables (Siigo, Alegra) y flujos comerciales conectados directamente a WhatsApp Business.",
+    descriptionEn: "Digital solutions agency specializing in workflow automation, custom software development, accounting integrations (Siigo, Alegra), and commercial pipelines connected to WhatsApp Business.",
     category: "fullstack",
-    technologies: ["Automatización", "WhatsApp Business", "Siigo / Alegra", "Next.js", "Supabase"],
-    href: "https://encuentra-todo.vercel.app/",
+    technologies: ["Agencia Digital", "WhatsApp Business", "Automatización IA", "Siigo / Alegra", "Next.js", "Supabase"],
+    href: "https://flujo-digital.vercel.app/",
     highlight: true,
     status: "live",
-    badgeText: "⚡ Automatización B2B",
-    badgeTextEn: "⚡ B2B Automation",
+    badgeText: "⚡ Agencia & B2B",
+    badgeTextEn: "⚡ Digital Agency",
   },
   {
     id: "rwa-web3",

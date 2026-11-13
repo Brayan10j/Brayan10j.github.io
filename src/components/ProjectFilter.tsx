@@ -238,7 +238,7 @@ export function ProjectFilter() {
                           </span>
                         </span>
                         <span className="text-[10px] text-muted-foreground font-mono">
-                          Modal ↗
+                          Panel ↗
                         </span>
                       </div>
                       <div className="text-[11px] text-muted-foreground truncate">
@@ -380,6 +380,30 @@ export function ProjectFilter() {
                   {locale === "en" ? "Esc to close" : "Esc para cerrar"}
                 </span>
               </div>
+
+              {modalProject.channelUrl && (
+                <div className="p-3.5 sm:p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="space-y-0.5">
+                    <div className="text-xs font-bold text-foreground flex items-center gap-1.5">
+                      <span>📢</span>
+                      <span>{t.joinChannel}</span>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground leading-snug">
+                      {t.channelCtaDesc}
+                    </p>
+                  </div>
+                  <a
+                    href={modalProject.channelUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="btn-join-whatsapp-channel"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition shrink-0 shadow-2xs"
+                  >
+                    <span>WhatsApp</span>
+                    <ExternalLinkIcon className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
 
               {modalProject.subProjects && modalProject.subProjects.length > 0 ? (
                 <div className="space-y-4 pb-4">
